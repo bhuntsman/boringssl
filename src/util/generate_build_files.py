@@ -35,6 +35,7 @@ OS_ARCH_COMBOS = [
     ('apple', 'x86_64', 'macosx', [], 'S'),
     ('linux', 'arm', 'linux32', [], 'S'),
     ('linux', 'aarch64', 'linux64', [], 'S'),
+    ('linux', 'ppc64le', 'linux64le', [], 'S'),
     ('linux', 'x86', 'elf', ['-fPIC', '-DOPENSSL_IA32_SSE2'], 'S'),
     ('linux', 'x86_64', 'elf', [], 'S'),
     ('win', 'x86', 'win32n', ['-DOPENSSL_IA32_SSE2'], 'asm'),
@@ -144,7 +145,7 @@ class Android(object):
     if asm_outputs:
       blueprint.write('    target: {\n')
       for ((osname, arch), asm_files) in asm_outputs:
-        if osname != 'linux':
+        if osname != 'linux' or arch == 'ppc64le':
           continue
         if arch == 'aarch64':
           arch = 'arm64'
