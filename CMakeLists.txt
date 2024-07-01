@@ -169,6 +169,9 @@ set(
   linux-arm/crypto/fipsmodule/sha512-armv4-linux.S
   linux-arm/crypto/fipsmodule/vpaes-armv7-linux.S
   linux-arm/crypto/test/trampoline-armv4-linux.S
+  linux-ppc64le/crypto/fipsmodule/aesp8-ppc-linux.S
+  linux-ppc64le/crypto/fipsmodule/ghashp8-ppc-linux.S
+  linux-ppc64le/crypto/test/trampoline-ppc-linux.S
   linux-x86/crypto/chacha/chacha-x86-linux.S
   linux-x86/crypto/fipsmodule/aesni-x86-linux.S
   linux-x86/crypto/fipsmodule/bn-586-linux.S
@@ -339,6 +342,7 @@ add_library(
   src/crypto/cpu_arm_freebsd.c
   src/crypto/cpu_arm_linux.c
   src/crypto/cpu_intel.c
+  src/crypto/cpu_ppc64le.c
   src/crypto/crypto.c
   src/crypto/curve25519/curve25519.c
   src/crypto/curve25519/spake25519.c
